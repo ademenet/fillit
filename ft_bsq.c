@@ -6,14 +6,18 @@
 /*   By: ademenet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 13:01:28 by ademenet          #+#    #+#             */
-/*   Updated: 2015/12/10 13:06:23 by ademenet         ###   ########.fr       */
+/*   Updated: 2015/12/10 17:13:11 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stdio.h>
+
+long	ft_sqrt(int nb);
 
 int		ft_bsq(int nb)
 {
 	int		bsq;
 
-	bsq = sqr(nb * 4);
+	bsq = (int)(ft_sqrt(nb * 4) + 1);
 	return (bsq);
 }
