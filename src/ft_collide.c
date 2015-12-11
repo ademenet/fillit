@@ -1,36 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sqrt.c                                          :+:      :+:    :+:   */
+/*   ft_collide.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ademenet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/10 14:58:28 by ademenet          #+#    #+#             */
-/*   Updated: 2015/12/10 18:49:13 by ademenet         ###   ########.fr       */
+/*   Created: 2015/12/10 18:58:44 by ademenet          #+#    #+#             */
+/*   Updated: 2015/12/10 19:01:56 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-long	ft_sqrt(int nb)
+int		ft_collide(int x, int y, char **map)
 {
-	long	n;
-	long	p;
-	long	low;
-	long	high;
-
-	if (2 > nb)
-		return (nb);
-	low = 0;
-	high = nb;
-	while (high > low + 1)
-	{
-		n = (high + low) / 2;
-		p = n * n;
-		if (nb < p)
-			high = n;
-		else if (nb > p)
-			low = n;
-		else
-			break;
-	}
-	return (nb == p ? n : low);
+	if (map[y][x] == '.')
+		return (1);
+	return (0);
 }
