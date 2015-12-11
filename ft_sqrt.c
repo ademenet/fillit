@@ -6,7 +6,7 @@
 /*   By: ademenet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 14:58:28 by ademenet          #+#    #+#             */
-/*   Updated: 2015/12/10 18:49:13 by ademenet         ###   ########.fr       */
+/*   Updated: 2015/12/11 10:32:12 by tvisenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ long	ft_sqrt(int nb)
 		else if (nb > p)
 			low = n;
 		else
-			break;
+			break ;
 	}
 	return (nb == p ? n : low);
 }
