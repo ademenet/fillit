@@ -2,8 +2,10 @@
 
 rm -rf test
 echo "\033[34m>>>\033[0m compilation"
-gcc -Wall -Wextra -Werror -o test test_fillit.c ../ft_bsq.c\
-	../ft_sqrt.c 
+gcc -Wall -Wextra -Werror -o test test_fillit.c ../src/ft_bsq.c\
+	../ft_sqrt.c ../src/ft_strsetnew.c ../src/ft_createmap.c\
+	~/Github/libft/ft_strnew.c ~/Github/libft/ft_bzero.c\
+
 if [ -e "test" ] && [ -x "test" ]
 then
 	echo "\033[32m>>>\033[0m done, launching..."

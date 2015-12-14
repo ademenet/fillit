@@ -1,36 +1,13 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sqrt.c                                          :+:      :+:    :+:   */
+/*   backtracking.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ademenet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/10 14:58:28 by ademenet          #+#    #+#             */
-/*   Updated: 2015/12/11 10:32:12 by tvisenti         ###   ########.fr       */
+/*   Created: 2015/12/11 10:37:18 by ademenet          #+#    #+#             */
+/*   Updated: 2015/12/11 10:37:21 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-long	ft_sqrt(int nb)
-{
-	long	n;
-	long	p;
-	long	low;
-	long	high;
 
-	if (2 > nb)
-		return (nb);
-	low = 0;
-	high = nb;
-	while (high > low + 1)
-	{
-		n = (high + low) / 2;
-		p = n * n;
-		if (nb < p)
-			high = n;
-		else if (nb > p)
-			low = n;
-		else
-			break ;
-	}
-	return (nb == p ? n : low);
-}

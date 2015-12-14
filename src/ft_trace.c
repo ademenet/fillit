@@ -1,36 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sqrt.c                                          :+:      :+:    :+:   */
+/*   ft_trace.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ademenet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/10 14:58:28 by ademenet          #+#    #+#             */
-/*   Updated: 2015/12/11 10:32:12 by tvisenti         ###   ########.fr       */
+/*   Created: 2015/12/10 18:53:50 by ademenet          #+#    #+#             */
+/*   Updated: 2015/12/10 18:58:03 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-long	ft_sqrt(int nb)
+int		ft_trace(int x, int y, int bsq)
 {
-	long	n;
-	long	p;
-	long	low;
-	long	high;
-
-	if (2 > nb)
-		return (nb);
-	low = 0;
-	high = nb;
-	while (high > low + 1)
-	{
-		n = (high + low) / 2;
-		p = n * n;
-		if (nb < p)
-			high = n;
-		else if (nb > p)
-			low = n;
-		else
-			break ;
-	}
-	return (nb == p ? n : low);
+	if ((x >= 0 && x <= (bsq - 1)) && (y >= 0 && y <= (bsq - 1)))
+		return (1);
+	return (0);
 }

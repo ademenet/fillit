@@ -1,36 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sqrt.c                                          :+:      :+:    :+:   */
+/*   ft_strsetnew.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ademenet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/10 14:58:28 by ademenet          #+#    #+#             */
-/*   Updated: 2015/12/11 10:32:12 by tvisenti         ###   ########.fr       */
+/*   Created: 2015/12/11 10:50:34 by ademenet          #+#    #+#             */
+/*   Updated: 2015/12/14 09:54:45 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-long	ft_sqrt(int nb)
-{
-	long	n;
-	long	p;
-	long	low;
-	long	high;
+#include <stdlib.h>
+#include <string.h>
 
-	if (2 > nb)
-		return (nb);
-	low = 0;
-	high = nb;
-	while (high > low + 1)
+char	*ft_strsetnew(char c, int size)
+{
+	char	*str;
+	int		i;
+
+	str = (char*)malloc((size + 1) * sizeof(char));
+	if (!str)
+		return (NULL);
+	i = 0;
+	while (size--)
 	{
-		n = (high + low) / 2;
-		p = n * n;
-		if (nb < p)
-			high = n;
-		else if (nb > p)
-			low = n;
-		else
-			break ;
+		str[i] = c;
+		i++;
 	}
-	return (nb == p ? n : low);
+	str[i] = '\0';
+	return (str);
 }
