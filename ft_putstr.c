@@ -1,21 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bsq.c                                           :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ademenet <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: aderragu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/10 13:01:28 by ademenet          #+#    #+#             */
-/*   Updated: 2015/12/10 17:13:11 by ademenet         ###   ########.fr       */
+/*   Created: 2015/11/26 19:38:08 by aderragu          #+#    #+#             */
+/*   Updated: 2015/11/26 19:38:10 by aderragu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int		ft_bsq(int nb)
+void	ft_putstr(char const *s)
 {
-	int		bsq;
-
-	bsq = (int)(ft_sqrt(nb * 4) + 1);
-	return (bsq);
+	write(1, s, ft_strlen(s));
 }

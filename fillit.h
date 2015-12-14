@@ -12,22 +12,29 @@
 
 #ifndef FILLIT_H
 # define FILLIT_H
-
+# define BUFF 21
 # include <unistd.h>
 # include <stdlib.h>
+# include <fcntl.h>
+# include <stdio.h>
 
 typedef	struct	s_tetri
 {
-	int				p1[2];
-	int				p2[2];
-	int				p3[2];
-	int				n;
-	char			letter;
-	struct s_tetri	*next;
+	int			p1[2];
+	int			p2[2];
+	int			p3[2];
 }				t_tetri;
 
-t_tetri		*ft_lstnew(const int *p1, const int *p2, const int *p3);
-void		ft_lstadd(t_tetri **alst, t_tetri *new);
-t_tetri		*ft_create_sqr();
+t_tetri	*ft_global_check(char *file_name);
+size_t	ft_strlen(const char *s);
+void	ft_putstr(char const *s);
+long	ft_sqrt(int nb);
+int		ft_bsq(int nb);
+t_tetri	*ft_block_check(char *buf, t_tetri *tetri);
+t_tetri	*ft_pattern_check(char *buf, t_tetri *tetri);
+int 	ft_norme_vector(int x, int y, int x_ref, int y_ref);
+void	ft_p1(char *buf, t_tetri *tetri, int x_ref, int y_ref);
+void	ft_p2(char *buf, t_tetri *tetri, int x_ref, int y_ref);
+void	ft_p3(char *buf, t_tetri *tetri, int x_ref, int y_ref);
 
 #endif

@@ -1,21 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bsq.c                                           :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ademenet <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: aderragu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/10 13:01:28 by ademenet          #+#    #+#             */
-/*   Updated: 2015/12/10 17:13:11 by ademenet         ###   ########.fr       */
+/*   Created: 2015/11/25 10:04:08 by aderragu          #+#    #+#             */
+/*   Updated: 2015/11/25 10:04:10 by aderragu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int		ft_bsq(int nb)
+size_t	ft_strlen(const char *s)
 {
-	int		bsq;
+	size_t len;
 
-	bsq = (int)(ft_sqrt(nb * 4) + 1);
-	return (bsq);
+	len = 0;
+	while (*s++)
+		len++;
+	return (len);
 }
