@@ -39,20 +39,21 @@ void	test_ft_bsq()
 	check(ft_bsq(8) == 6);
 }
 
-void	test_ft_strset()
+void	test_ft_strsetnew()
 {
-	check(strcmp(ft_strsetnew(7, 'B'), "BBBBBB") == 0);
+	check(strcmp(ft_strsetnew('B', 10), "BBBBBBBBBB") == 0);
+	check(strcmp(ft_strsetnew('Z', 7), "ZZZZZZZ") == 0);
 }
 
 void	test_ft_createmap()
 {
 	char	**s;
 	int	i = 0;
-	s = ft_createmap(4);
+	s = ft_createmap(5);
 	while (s[i])
 	{
-	printf("%lu", sizeof(s));
 		printf("%s\n", s[i]);
+		printf("%d\n", i);
 		i++;
 	}
 }
@@ -61,7 +62,7 @@ int		main(void)
 {
 	MY_TEST("ft_sqrt", test_ft_sqrt);
 	MY_TEST("ft_bsq", test_ft_bsq);
-	MY_TEST("ft_strsetnew", test_ft_strset);
+	MY_TEST("ft_strsetnew", test_ft_strsetnew);
 	MY_TEST("ft_createmap", test_ft_createmap);
 	return (0);
 }
