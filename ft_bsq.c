@@ -10,9 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-
-long	ft_sqrt(int nb);
+#include "fillit.h"
 
 int		ft_bsq(int nb)
 {
