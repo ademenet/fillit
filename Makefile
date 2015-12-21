@@ -3,66 +3,63 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ademenet <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: gvillat <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2015/12/09 15:31:10 by ademenet          #+#    #+#              #
-#    Updated: 2015/12/21 16:24:39 by gvillat          ###   ########.fr        #
+#    Created: 2015/12/21 17:34:59 by gvillat           #+#    #+#              #
+#    Updated: 2015/12/21 18:40:24 by gvillat          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 .PHONY: all, clean, fclean, re
-.SUFFIXES:
 
 SRC_PATH = ./src/
-SRC_NAME = backtracking.c\
-		   check_file.c.c\
-		   ft_bsq
+SRC_NAME = 	backtracking.c\
+	 		check_file.c\
+	 		ft_bsq.c\
+	 		ft_collide.c\
+			ft_createmap.c\
+			ft_printmap.c\
+			ft_strsetnew.c\
+			ft_trace.c\
+			points_assignment.c
 
-OBJ_PATH = ./obj/
+OBJ = $(SRC_NAME:.c=.o) $(TEST_NAME:.c=.o) $(LIB_NAME:.c=.o)
 
-INC_PATH = ./inc/
+TEST_PATH = ./test/
+TEST_NAME = main_test.c
 
 LIB_PATH = ./lib/
-LIB_NAME = fillit.h\
-		   libft.h
+LIB_NAME = 	ft_putstr.c\
+	 		ft_sqrt.c\
+	  		ft_strlen.c
+
+INC_PATH = ./inc/
+INC_NAME = fillit.h\
 
 NAME = fillit
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
-
-OBJ_NAME = $(SRC_NAME:.c=.o)
+CFLAGS = -Wall -Werror -Wextra
 
 SRC = $(addprefix $(SRC_PATH),$(SRC_NAME))
-OBJ = $(addprefix $(OBJ_PATH),$(OBJ_NAME))
-LIB = $(addprefix -L,$(LIB_PATH))
-INC = $(addprefix -I,$(INC_PATH))
+TEST = $(addprefix $(TEST_PATH),$(TEST_NAME))
+LIB = $(addprefix $(LIB_PATH),$(LIB_NAME))
 
 all: $(NAME)
 
-$(NAME): $(INC) $(OBJ)
-	echo -e "\033[44m---------- COMPILATION DE $(NAME) -----------\033[0m"
-	$(CC) $(CFLAGS) $(OBJ) -o $@
-	echo -e "\033[44m---------- \033[32mEFFECTUE\033[0m\033[44m-----------\033[0m"
-
-$(OBJ_PATH)%.o: $(SRC_PATH)%.c
-	@mkdir -p $(OBJ_PATH) 2> /dev/null
-	$(CC) $(CFLAGS) $(LIB) $(INC) -o $@ -c $<
-
+$(NAME):
+	$(CC) -c $(CFLAGS) $(SRC) $(TEST) $(LIB)
+	ar rc $(NAME) $(OBJ)
 
 clean:
-	echo -e "\033[44m---------- CLEAN ! -----------\033[0m"
-	rm -rf $(OBJ)
-	@rmdir $(OBJ_PATH) 2> /dev/null || echo "" /dev/null
-	echo -e "\033[44m---------- \033[32mEFFECTUE\033[0m\033[44m-----------\033[0m"
+	rm -rf $(OBJ) 
 
 fclean: clean
-	echo -e "\033[44m---------- FULL CLEAN ! -----------\033[0m"
 	rm -rf $(NAME)
-	echo -e "\033[44m---------- \033[32mEFFECTUE\033[0m\033[44m-----------\033[0m"
 
 re: fclean all
 
 norme:
 	norminette $(SRC)
-	norminette $(INC_PATH)*.h
+	norminette $(LIB)
+
