@@ -79,7 +79,8 @@ t_tetri		*ft_block_check(char *buf, t_tetri *tetri)
 		else if (buf[cur] == '#')
 			shrp_cnt++;
 	}
-	if (dot_cnt != 12 || shrp_cnt != 4 || nwl_cnt != 5)
+	if (dot_cnt != 12 || shrp_cnt != 4 || nwl_cnt != 5 || buf[0] == '.' ||
+		buf[0] == '#' || buf[20] != '\n')
 		return (NULL);
 	else
 		return (ft_pattern_check(buf, tetri));
