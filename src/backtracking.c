@@ -6,7 +6,7 @@
 /*   By: ademenet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/11 10:37:18 by ademenet          #+#    #+#             */
-/*   Updated: 2015/12/14 15:32:16 by ademenet         ###   ########.fr       */
+/*   Updated: 2015/12/14 17:16:43 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int		ft_check(int *p0, int bsq, char **map, t_tetri tetris)
 	return (1);
 }
 
-int		backtracking(t_tetri *tetris, char **map, int bsq, int p0[2])
+int		backtracking(t_tetri *tetris, char **map, int bsq, int y, int x)
 {
 	int		p0[2];
 	int		i;
@@ -50,9 +50,9 @@ int		backtracking(t_tetri *tetris, char **map, int bsq, int p0[2])
 	if (ft_check(p0, bsq, map, tetris[i]))
 	{
 		map[p0[0]][p0[1]] = i + 'A';
-		map[tetris[i].p1[0]][tetris[i].p1[1]] = i + 'A';
-		map[tetris[i].p2[0]][tetris[i].p2[1]] = i + 'A';
-		map[tetris[i].p3[0]][tetris[i].p3[1]] = i + 'A';
+		map[p0[0] + tetris[i].p1[0]][p0[1] + tetris[i].p1[1]] = i + 'A';
+		map[p0[0] + tetris[i].p2[0]][p0[1] + tetris[i].p2[1]] = i + 'A';
+		map[p0[0] + tetris[i].p3[0]][p0[1] + tetris[i].p3[1]] = i + 'A';
 		p0 
 		backtracking(tetris[i + 1]);
 	}
