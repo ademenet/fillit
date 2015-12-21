@@ -6,7 +6,7 @@
 /*   By: ademenet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/11 10:37:18 by ademenet          #+#    #+#             */
-/*   Updated: 2015/12/21 16:09:17 by gvillat          ###   ########.fr       */
+/*   Updated: 2015/12/21 16:32:39 by gvillat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int		backtracking(t_tetri *tetris, char **map, int bsq, int y, int x)
 	int		p0[2];
 	int		i;
 
+	i = 0;
 	if (p0[0] == bsq - 1 && p0[1] == bsq - 1)
 		return (1);
 	if (ft_check(p0, bsq, map, tetris[i]))
