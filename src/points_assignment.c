@@ -6,11 +6,11 @@
 /*   By: aderragu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/11 17:55:25 by aderragu          #+#    #+#             */
-/*   Updated: 2015/12/11 17:55:26 by aderragu         ###   ########.fr       */
+/*   Updated: 2015/12/21 16:16:55 by gvillat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "../inc/fillit.h"
 
 int	ft_p1(char *buf, t_tetri *tetri, int x_ref, int y_ref)
 {

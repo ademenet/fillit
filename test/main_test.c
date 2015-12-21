@@ -6,11 +6,11 @@
 /*   By: aderragu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/11 10:38:09 by aderragu          #+#    #+#             */
-/*   Updated: 2015/12/11 10:38:10 by aderragu         ###   ########.fr       */
+/*   Updated: 2015/12/21 16:18:08 by gvillat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../fillit.h"
+#include "../inc/fillit.h"
 
 int	main(int argc, char **argv)
 {

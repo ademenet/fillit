@@ -6,11 +6,11 @@
 /*   By: aderragu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/26 19:38:08 by aderragu          #+#    #+#             */
-/*   Updated: 2015/11/26 19:38:10 by aderragu         ###   ########.fr       */
+/*   Updated: 2015/12/21 16:07:40 by gvillat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "../inc/fillit.h"
 
 void	ft_putstr(char const *s)
 {

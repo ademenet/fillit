@@ -6,7 +6,7 @@
 /*   By: aderragu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 14:16:42 by aderragu          #+#    #+#             */
-/*   Updated: 2015/12/09 14:16:47 by aderragu         ###   ########.fr       */
+/*   Updated: 2015/12/21 16:17:52 by gvillat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,12 @@ int				ft_norme_vector(int x, char *buf);
 int				ft_p1(char *buf, t_tetri *tetri, int x_ref, int y_ref);
 int				ft_p2(char *buf, t_tetri *tetri, int x_ref, int y_ref);
 int				ft_p3(char *buf, t_tetri *tetri, int x_ref, int y_ref);
+int				backtracking(t_tetri *tetris, char **map, int bsq, int y, int x);
+int				ft_check(int *p0, int bsq, char **map, t_tetri tetris);
+int 			ft_collide(int x, int y, char **map);
+char			*ft_strsetnew(char c, int size);
+char			**ft_createmap(int bsq);
+void			ft_printmap(char **map, int p0[2], t_tetri tetris, int i);
+int				ft_trace(int x, int y, int bsq);
 
 #endif

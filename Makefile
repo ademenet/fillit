@@ -6,7 +6,7 @@
 #    By: ademenet <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/09 15:31:10 by ademenet          #+#    #+#              #
-#    Updated: 2015/12/09 17:56:54 by ademenet         ###   ########.fr        #
+#    Updated: 2015/12/21 16:24:39 by gvillat          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,11 +14,13 @@
 .SUFFIXES:
 
 SRC_PATH = ./src/
-SRC_NAME = main.c\
+SRC_NAME = backtracking.c\
+		   check_file.c.c\
+		   ft_bsq
 
 OBJ_PATH = ./obj/
 
-INC_PATH = ./include/
+INC_PATH = ./inc/
 
 LIB_PATH = ./lib/
 LIB_NAME = fillit.h\

@@ -6,14 +6,13 @@
 /*   By: ademenet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/11 10:37:57 by ademenet          #+#    #+#             */
-/*   Updated: 2015/12/14 12:12:54 by ademenet         ###   ########.fr       */
+/*   Updated: 2015/12/21 16:14:40 by gvillat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <string.h>
-
-char	*ft_strsetnew(char c, int size);
+#include "../inc/fillit.h"
 
 char	**ft_createmap(int bsq)
 {

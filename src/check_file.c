@@ -6,11 +6,11 @@
 /*   By: aderragu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/11 09:47:59 by aderragu          #+#    #+#             */
-/*   Updated: 2015/12/11 09:48:00 by aderragu         ###   ########.fr       */
+/*   Updated: 2015/12/21 16:09:27 by gvillat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "../inc/fillit.h"
 
 int			ft_norme_vector(int x, char *buf)
 {

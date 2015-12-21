@@ -6,9 +6,11 @@
 /*   By: ademenet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 18:53:50 by ademenet          #+#    #+#             */
-/*   Updated: 2015/12/10 18:58:03 by ademenet         ###   ########.fr       */
+/*   Updated: 2015/12/21 16:16:42 by gvillat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "../inc/fillit.h"
 
 int		ft_trace(int x, int y, int bsq)
 {
