@@ -1,20 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_collide.c                                       :+:      :+:    :+:   */
+/*   ft_round.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/10 18:58:44 by ademenet          #+#    #+#             */
-/*   Updated: 2015/12/22 15:29:14 by ademenet         ###   ########.fr       */
+/*   Created: 2015/12/22 15:30:37 by ademenet          #+#    #+#             */
+/*   Updated: 2015/12/22 15:36:38 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/fillit.h"
-
-int		ft_collide(int x, int y, char **map)
+int     ft_round(float nb)
 {
-	if (map[y][x] == '.')
-		return (1);
-	return (0);
+    return (nb >= 0 ? (int)(nb + 0.5) : (int)(nb - 0.5));
 }

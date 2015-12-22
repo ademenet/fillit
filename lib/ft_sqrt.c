@@ -3,21 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sqrt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ademenet <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 14:58:28 by ademenet          #+#    #+#             */
-/*   Updated: 2015/12/21 16:08:35 by gvillat          ###   ########.fr       */
+/*   Updated: 2015/12/22 16:09:01 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/fillit.h"
 
-long	ft_sqrt(int nb)
+float	ft_sqrt(float nb)
 {
-	long	n;
-	long	p;
-	long	low;
-	long	high;
+	float	n;
+	float	p;
+	float	low;
+	float	high;
 
 	if (2 > nb)
 		return (nb);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bsq.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ademenet <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 13:01:28 by ademenet          #+#    #+#             */
-/*   Updated: 2015/12/21 16:09:41 by gvillat          ###   ########.fr       */
+/*   Updated: 2015/12/22 15:38:31 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,6 @@ int		ft_bsq(int nb)
 {
 	int		bsq;
 
-	bsq = (int)(ft_sqrt(nb * 4) + 1);
+	bsq = ft_round(ft_sqrt((float)(nb * 4)));
 	return (bsq);
 }
