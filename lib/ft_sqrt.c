@@ -6,18 +6,18 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 14:58:28 by ademenet          #+#    #+#             */
-/*   Updated: 2015/12/22 15:45:52 by ademenet         ###   ########.fr       */
+/*   Updated: 2015/12/22 16:09:01 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/fillit.h"
 
-double	ft_sqrt(double nb)
+float	ft_sqrt(float nb)
 {
-	double	n;
-	double	p;
-	double	low;
-	double	high;
+	float	n;
+	float	p;
+	float	low;
+	float	high;
 
 	if (2 > nb)
 		return (nb);
