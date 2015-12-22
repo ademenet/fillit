@@ -12,30 +12,24 @@
 
 #include "../inc/fillit.h"
 
-int			ft_norme_vector(int x, char *buf)
+static int	ft_abs(int nbr)
 {
-	if (x > 5 && x < 15)
-	{
-		if (buf[x + 1] == '#' || buf[x + 5] == '#' || buf[x - 1] == '#' ||
-		buf[x - 5] == '#')
-			return (1);
-	}
-	if (x == 0)
-	{
-		if (buf[x + 1] == '#' || buf[x + 5] == '#')
-			return (1);
-	}
-	if (x > 0 && x <= 5)
-	{
-		if (buf[x + 1] == '#' || buf[x + 5] == '#' || buf[x - 1] == '#')
-			return (1);
-	}
-	if (x > 15 && x < 21)
-	{
-		if (buf[x + 1] == '#' || buf[x - 1] == '#' || buf[x - 5] == '#')
-			return (1);
-	}
-	return (0);
+	return (nbr < 0 ? -nbr : nbr);
+}
+
+int			ft_norme_vector(int x, int y, int x_ref, int y_ref)
+{
+	int	p;
+	int	p_ref;
+	int	p_diff;
+
+	p_ref = x_ref + y_ref;
+	p = x + y;
+	p_diff = p - p_ref;
+	p = ft_abs(x) + ft_abs(y);
+	if (p_diff > 1 || p_diff < -1 || p > 3)
+		return (0);
+	return (1);
 }
 
 t_tetri		*ft_pattern_check(char *buf, t_tetri *tetri)
@@ -79,8 +73,8 @@ t_tetri		*ft_block_check(char *buf, t_tetri *tetri)
 		else if (buf[cur] == '#')
 			shrp_cnt++;
 	}
-	if (dot_cnt != 12 || shrp_cnt != 4 || nwl_cnt != 5 || buf[0] == '.' ||
-		buf[0] == '#' || buf[20] != '\n')
+	if (dot_cnt != 12 || shrp_cnt != 4 || nwl_cnt != 5 || buf[20] != '\n' ||
+		(buf[0] != '.' && buf[0] != '#'))
 		return (NULL);
 	else
 		return (ft_pattern_check(buf, tetri));
@@ -92,6 +86,7 @@ t_tetri		*ft_global_check(char *file_name, int *pcs)
 	t_tetri	*tetri_array;
 	int		fd;
 	int		cnt;
+	int i = 0;
 
 	if ((tetri_array = malloc(sizeof(t_tetri) * 26)) == NULL)
 		return (NULL);

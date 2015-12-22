@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-.PHONY: all, clean, fclean, re
+.PHONY: all, clean, fclean, re, test
 
 SRC_PATH = ./src/
 SRC_NAME = 	backtracking.c\
@@ -50,6 +50,9 @@ all: $(NAME)
 
 $(NAME):
 	$(CC) $(CFLAGS) $(SRC) main_true.c $(LIB) -I $(INC) -o $(NAME)
+
+test:
+	$(CC) $(CFLAGS) $(SRC) ./test/main_test.c $(LIB) -I $(INC) -o $(NAME)
 
 clean:
 	rm -rf $(OBJ)
