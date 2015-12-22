@@ -6,13 +6,13 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 14:58:28 by ademenet          #+#    #+#             */
-/*   Updated: 2015/12/22 16:09:01 by ademenet         ###   ########.fr       */
+/*   Updated: 2015/12/22 16:28:49 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/fillit.h"
 
-float	ft_sqrt(float nb)
+int	ft_sqrt(int nb)
 {
 	float	n;
 	float	p;

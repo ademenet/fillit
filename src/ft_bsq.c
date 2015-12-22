@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 13:01:28 by ademenet          #+#    #+#             */
-/*   Updated: 2015/12/22 15:38:31 by ademenet         ###   ########.fr       */
+/*   Updated: 2015/12/22 17:26:14 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,6 @@ int		ft_bsq(int nb)
 {
 	int		bsq;
 
-	bsq = ft_round(ft_sqrt((float)(nb * 4)));
+	bsq = ft_round(ft_sqrt(nb * 4));
 	return (bsq);
 }

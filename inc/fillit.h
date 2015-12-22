@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 14:16:42 by aderragu          #+#    #+#             */
-/*   Updated: 2015/12/22 16:09:51 by ademenet         ###   ########.fr       */
+/*   Updated: 2015/12/22 16:29:52 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ typedef	struct	s_tetri
 t_tetri			*ft_global_check(char *file_name, int *pcs);
 size_t			ft_strlen(const char *s);
 void			ft_putstr(char const *s);
-float			ft_sqrt(float nb);
+int				ft_sqrt(int number);
 int				ft_bsq(int nb);
 int     		ft_round(float nb);
 t_tetri			*ft_block_check(char *buf, t_tetri *tetri);

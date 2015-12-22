@@ -16,31 +16,28 @@
 #define check(cond) if(cond) { printf("\033[32mo\033[0m"); }\
 	else { printf("\033[31mx\033[0m"); }
 
-float	ft_sqrt(float nb);
+int		ft_sqrt(int nb);
 int		ft_bsq(int area);
 char	*ft_strsetnew(char c, int size);
 char	**ft_createmap(int bsq);
 
 void	test_ft_sqrt()
 {
-	printf("\n%f\n", ft_sqrt(1));
-	printf("%f\n", ft_sqrt(4));
-	printf("%f\n", ft_sqrt(9));
-	printf("%f\n", ft_sqrt(1569));
-	printf("%f\n", ft_sqrt(6));
-	check(ft_sqrt(1) == 1.000000);
-	check(ft_sqrt(4) == 2.000000);
-	check(ft_sqrt(9) == 3.000000);
+	check(ft_sqrt(1) == 1);
+	check(ft_sqrt(4) == 2);
+	check(ft_sqrt(9) == 3);
 	check(ft_sqrt(40) == 6);
 	check(ft_sqrt(45) == 6);
 	check(ft_sqrt(1569) == 39);
-	check(ft_sqrt(1569887456) == 39621);
 }
 
 void	test_ft_bsq()
 {
 	check(ft_bsq(1) == 2);
+	printf("%d\n", ft_bsq(1));
 	check(ft_bsq(2) == 3);
+	printf("%d\n", ft_bsq(2));
+	printf("%d\n", ft_bsq(3));
 	check(ft_bsq(10) == 7);
 	check(ft_bsq(8) == 6);
 }
