@@ -44,15 +44,15 @@ CFLAGS = -Wall -Werror -Wextra
 SRC = $(addprefix $(SRC_PATH),$(SRC_NAME))
 TEST = $(addprefix $(TEST_PATH),$(TEST_NAME))
 LIB = $(addprefix $(LIB_PATH),$(LIB_NAME))
+INC = $(addprefix $(INC_PATH),$(INC_NAME))
 
 all: $(NAME)
 
 $(NAME):
-	$(CC) -c $(CFLAGS) $(SRC) $(TEST) $(LIB)
-	ar rc $(NAME) $(OBJ)
+	$(CC) $(CFLAGS) $(SRC) $(TEST) $(LIB) -I $(INC) -o $(NAME)
 
 clean:
-	rm -rf $(OBJ) 
+	rm -rf $(OBJ)
 
 fclean: clean
 	rm -rf $(NAME)
