@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/11 10:37:18 by ademenet          #+#    #+#             */
-/*   Updated: 2015/12/22 14:44:18 by ademenet         ###   ########.fr       */
+/*   Updated: 2015/12/22 15:03:44 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,10 @@ int		backtracking(t_tetri *tetris, char **map, int bsq, int y, int x)
 		ft_printmap(map, p0, tetris[i], i);
 		if (x == bsq - 1)
 		{
-			printf("First\n");
 			backtracking(&tetris[i + 1], map, bsq, y + 1, 0);
 		}
 		else
 		{
-			printf("Second\n");
 			backtracking(&tetris[i + 1], map, bsq, y, x + 1);
 		}
 	}
