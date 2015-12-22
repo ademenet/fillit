@@ -6,7 +6,11 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 14:16:42 by aderragu          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2015/12/22 16:29:52 by ademenet         ###   ########.fr       */
+=======
+/*   Updated: 2015/12/22 17:43:02 by aderragu         ###   ########.fr       */
+>>>>>>> 67140b09205176137a4e53cf9ac29bbcba474ee3
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +37,7 @@ int				ft_bsq(int nb);
 int     		ft_round(float nb);
 t_tetri			*ft_block_check(char *buf, t_tetri *tetri);
 t_tetri			*ft_pattern_check(char *buf, t_tetri *tetri);
-int				ft_norme_vector(int x, char *buf);
+int				ft_norme_vector(int x, int y, int x_ref, int y_ref);
 int				ft_p1(char *buf, t_tetri *tetri, int x_ref, int y_ref);
 int				ft_p2(char *buf, t_tetri *tetri, int x_ref, int y_ref);
 int				ft_p3(char *buf, t_tetri *tetri, int x_ref, int y_ref);
