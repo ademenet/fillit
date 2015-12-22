@@ -6,7 +6,7 @@
 /*   By: aderragu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 14:16:42 by aderragu          #+#    #+#             */
-/*   Updated: 2015/12/21 16:17:52 by gvillat          ###   ########.fr       */
+/*   Updated: 2015/12/22 17:42:16 by aderragu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ long			ft_sqrt(int nb);
 int				ft_bsq(int nb);
 t_tetri			*ft_block_check(char *buf, t_tetri *tetri);
 t_tetri			*ft_pattern_check(char *buf, t_tetri *tetri);
-int				ft_norme_vector(int x, char *buf);
+int				ft_norme_vector(int x, int y, int x_ref, int y_ref);
 int				ft_p1(char *buf, t_tetri *tetri, int x_ref, int y_ref);
 int				ft_p2(char *buf, t_tetri *tetri, int x_ref, int y_ref);
 int				ft_p3(char *buf, t_tetri *tetri, int x_ref, int y_ref);
