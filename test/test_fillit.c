@@ -23,7 +23,12 @@ char	**ft_createmap(int bsq);
 
 void	test_ft_sqrt()
 {
-	check(ft_sqrt(1) == 1);
+	printf("\n%ld\n", ft_sqrt(1));
+	printf("%ld\n", ft_sqrt(4));
+	printf("%ld\n", ft_sqrt(9));
+	printf("%ld\n", ft_sqrt(1569));
+	printf("%ld\n", ft_sqrt(6));
+	check(ft_sqrt(1) == 1.00000000);
 	check(ft_sqrt(2) == 1);
 	check(ft_sqrt(9) == 3);
 	check(ft_sqrt(40) == 6);
@@ -34,6 +39,7 @@ void	test_ft_sqrt()
 
 void	test_ft_bsq()
 {
+	check(ft_bsq(1) == 2);
 	check(ft_bsq(2) == 3);
 	check(ft_bsq(10) == 7);
 	check(ft_bsq(8) == 6);
