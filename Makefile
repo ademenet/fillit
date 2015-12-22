@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: gvillat <marvin@42.fr>                     +#+  +:+       +#+         #
+#    By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/21 17:34:59 by gvillat           #+#    #+#              #
-#    Updated: 2015/12/21 18:40:24 by gvillat          ###   ########.fr        #
+#    Updated: 2015/12/22 11:59:28 by ademenet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,7 +49,7 @@ INC = $(addprefix $(INC_PATH),$(INC_NAME))
 all: $(NAME)
 
 $(NAME):
-	$(CC) $(CFLAGS) $(SRC) $(TEST) $(LIB) -I $(INC) -o $(NAME)
+	$(CC) $(CFLAGS) $(SRC) main_true.c $(LIB) -I $(INC) -o $(NAME)
 
 clean:
 	rm -rf $(OBJ)
@@ -62,4 +62,3 @@ re: fclean all
 norme:
 	norminette $(SRC)
 	norminette $(LIB)
-
