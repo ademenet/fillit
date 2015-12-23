@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "../inc/fillit.h"
+#include "../inc/colors.h"
 
 int	main(int argc, char **argv)
 {
@@ -29,13 +30,18 @@ int	main(int argc, char **argv)
 		printf("Nombre de tetriminos : %d\n", pcs);
 		while (++cnt < pcs)
 		{
+			ft_putstr(RED);
 			printf("%d %d\n",tetris[cnt].p1[1], tetris[cnt].p1[0]);
+			ft_putstr(CYN);
 			printf("%d %d\n",tetris[cnt].p2[1], tetris[cnt].p2[0]);
+			ft_putstr(YEL);
 			printf("%d %d\n\n",tetris[cnt].p3[1], tetris[cnt].p3[0]);
 		}
 	}
 	argc--;
+	ft_putstr(UDL GRN);
 	ft_putstr("Appuyez sur une touche pour quitter\n");
+	ft_putstr(RESET);
 	while (pr[0] == 'c')
 		read(0, pr, 1);
 	return(0);
