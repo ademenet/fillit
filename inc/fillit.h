@@ -28,7 +28,7 @@ typedef	struct	s_tetri
 t_tetri			*ft_global_check(char *file_name, int *pcs);
 size_t			ft_strlen(const char *s);
 void			ft_putstr(char const *s);
-int				ft_sqrt(int number);
+float			ft_sqrt(int nb);
 int				ft_bsq(int nb);
 int     		ft_round(float nb);
 t_tetri			*ft_block_check(char *buf, t_tetri *tetri);
