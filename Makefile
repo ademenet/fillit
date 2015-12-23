@@ -21,7 +21,8 @@ SRC_NAME = 	backtracking.c\
 			ft_printmap.c\
 			ft_strsetnew.c\
 			ft_trace.c\
-			points_assignment.c
+			points_assignment.c\
+			initfile.c
 
 OBJ = $(SRC_NAME:.c=.o) $(TEST_NAME:.c=.o) $(LIB_NAME:.c=.o)
 

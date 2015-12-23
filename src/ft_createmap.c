@@ -10,8 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <string.h>
 #include "../inc/fillit.h"
 
 char	**ft_createmap(int bsq)

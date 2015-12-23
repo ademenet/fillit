@@ -12,7 +12,7 @@
 
 #include "../inc/fillit.h"
 
-int	ft_p1(char *buf, t_tetri *tetri, int x_ref, int y_ref)
+int		ft_p1(char *buf, t_tetri *tetri, int x_ref, int y_ref)
 {
 	int	cur;
 	int	shrp_cnt;
@@ -29,7 +29,7 @@ int	ft_p1(char *buf, t_tetri *tetri, int x_ref, int y_ref)
 	return (ft_norme_vector(tetri->p1[1], tetri->p1[0], 0, 0));
 }
 
-int	ft_p2(char *buf, t_tetri *tetri, int x_ref, int y_ref)
+int		ft_p2(char *buf, t_tetri *tetri, int x_ref, int y_ref)
 {
 	int	cur;
 	int	shrp_cnt;
@@ -46,7 +46,7 @@ int	ft_p2(char *buf, t_tetri *tetri, int x_ref, int y_ref)
 	return (ft_norme_vector(tetri->p2[1], tetri->p2[0], tetri->p1[1], tetri->p1[0]));
 }
 
-int	ft_p3(char *buf, t_tetri *tetri, int x_ref, int y_ref)
+int		ft_p3(char *buf, t_tetri *tetri, int x_ref, int y_ref)
 {
 	int	cur;
 	int	shrp_cnt;
@@ -62,3 +62,15 @@ int	ft_p3(char *buf, t_tetri *tetri, int x_ref, int y_ref)
 	tetri->p3[1] = cur % 5 - x_ref;
 	return (ft_norme_vector(tetri->p3[1], tetri->p3[0], tetri->p2[1], tetri->p2[0]));
 }
+
+void	ft_letter_assignation(t_tetri *tetris)
+{
+	int	cnt;
+
+	cnt = 0;
+	while(tetris[cnt].letter != '|')
+	{
+		tetris[cnt].letter = (char)(65 + cnt);
+		cnt++;
+	}
+} 

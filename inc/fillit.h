@@ -13,6 +13,7 @@
 #ifndef FILLIT_H
 # define FILLIT_H
 # define BUFF 21
+#include "colors.h"
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
@@ -23,6 +24,7 @@ typedef	struct	s_tetri
 	int			p1[2];
 	int			p2[2];
 	int			p3[2];
+	char		letter;
 }				t_tetri;
 
 t_tetri			*ft_global_check(char *file_name, int *pcs);
@@ -44,5 +46,7 @@ char			*ft_strsetnew(char c, int size);
 char			**ft_createmap(int bsq);
 void			ft_printmap(char **map, int p0[2], t_tetri tetris, int i);
 int				ft_trace(int x, int y, int bsq);
+void 			ft_init(t_tetri *tetris, int pcs);
+void			ft_letter_assignation(t_tetri *tetris);
 
 #endif
