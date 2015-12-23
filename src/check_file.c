@@ -86,18 +86,25 @@ t_tetri		*ft_global_check(char *file_name, int *pcs)
 	t_tetri	*tetri_array;
 	int		fd;
 	int		cnt;
-	int i = 0;
 
 	if ((tetri_array = malloc(sizeof(t_tetri) * 26)) == NULL)
 		return (NULL);
 	cnt = -1;
-	buf = malloc(sizeof(char));
-	fd = open(file_name, O_RDONLY, 0555);
+	if ((buf = malloc(sizeof(char))) == NULL)
+	{
+		free (tetri_array);
+		return (NULL);
+	}
+	if((fd = open(file_name, O_RDONLY, 0555)) == -1)
+		return (NULL);
 	while (read(fd, buf, BUFF))
 	{
 		if (ft_block_check(buf, &(tetri_array[++cnt])) == NULL)
 			return (NULL);
 		*pcs = *pcs + 1;
 	}
+	free(buf);
+	if((close(fd)) == -1)
+		return (NULL);
 	return (tetri_array);
 }

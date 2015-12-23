@@ -31,7 +31,8 @@ TEST_NAME = main_test.c
 LIB_PATH = ./lib/
 LIB_NAME = 	ft_putstr.c\
 	 		ft_sqrt.c\
-	  		ft_strlen.c
+	  		ft_strlen.c\
+			ft_round.c
 
 INC_PATH = ./inc/
 INC_NAME = fillit.h\

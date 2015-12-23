@@ -17,6 +17,7 @@ int	main(int argc, char **argv)
 	t_tetri	*tetris;
 	int	pcs;
 	int	cnt;
+	char pr[] = "c";
 
 	pcs = 0;
 	cnt = -1;
@@ -34,6 +35,9 @@ int	main(int argc, char **argv)
 		}
 	}
 	argc--;
+	ft_putstr("Appuyez sur une touche pour quitter\n");
+	while (pr[0] == 'c')
+		read(0, pr, 1);
 	return(0);
 }
 //printf(" . = %d, # = %d, n = %d\n",dot_cnt, shrp_cnt, nwl_cnt);
