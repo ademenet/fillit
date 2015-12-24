@@ -12,7 +12,23 @@
 
 #include "../inc/fillit.h"
 
+static void		ft_clean_map(t_tetri *tetri, char **map, int sze_sqr)
+{
+	int			pos;
+	int			cnt;
 
+	cnt = 0;
+	pos = 0;
+	while(pos < sze_sqr * sze_sqr && cnt < 4)
+	{
+		if (map[pos / sze_sqr][pos % sze_sqr] == tetri->letter)
+		{
+			map[pos / sze_sqr][pos % sze_sqr] = '.';
+			cnt++;
+		}
+		pos++;
+	}
+}
 static int		ft_around_tetri(t_tetri *tetri, char **map, int sze_sqr, int pos)
 {
 	int 		x;
@@ -41,38 +57,35 @@ static int		ft_around_tetri(t_tetri *tetri, char **map, int sze_sqr, int pos)
 		return (0);
 	return (1);
 }
-static int		ft_place_tetri(t_tetri *tetri, char **map, int sze_sqr, int pos)
+void		ft_place_tetri(t_tetri *tetri, char **map, int sze_sqr, int pos)
 {
 	int 		x;
 	int 		y;
 
 	x = pos % sze_sqr;
 	y = pos / sze_sqr;
-	if (ft_around_tetri(tetri, map, sze_sqr, pos))
-	{
-		map[y][x] = tetri->letter;
-		map[y + tetri->p1[0]][x + tetri->p1[1]] = tetri->letter;
-		map[y + tetri->p2[0]][x + tetri->p2[1]] = tetri->letter;
-		map[y + tetri->p3[0]][x + tetri->p3[1]] = tetri->letter;
-		return (1);
-	}
-	else
-		return (0);
+	map[y][x] = tetri->letter;
+	map[y + tetri->p1[0]][x + tetri->p1[1]] = tetri->letter;
+	map[y + tetri->p2[0]][x + tetri->p2[1]] = tetri->letter;
+	map[y + tetri->p3[0]][x + tetri->p3[1]] = tetri->letter;
 }
 
 static int		ft_rec_fill_map(t_tetri *tetris, char **map, int sze_sqr, int pos)
 {
-	if(tetris->letter == '|')
-		return (1);
-	if (pos >= sze_sqr * sze_sqr )
-		return (0);
-	while(ft_place_tetri(tetris, map, sze_sqr, pos) == 0)
+	if (tetris->letter == '|')
+		return(1);
+	while(pos < sze_sqr * sze_sqr)
+	{
+		if(ft_around_tetri(tetris, map, sze_sqr, pos))
+		{
+			ft_place_tetri(tetris, map, sze_sqr, pos);
+			if(ft_rec_fill_map(tetris + 1, map, sze_sqr, 0))
+			 	return(1);
+		}
 		pos++;
-		ft_rec_fill_map(tetris++, map, sze_sqr, 0);
-	else
-		ft_rec_fill_map(tetris, map, sze_sqr, pos++);
-	return (0);
-	
+	}
+	ft_clean_map((tetris - 1), map, sze_sqr);
+	return(0);
 }
 
 void		ft_init(t_tetri *tetris, int pcs)
