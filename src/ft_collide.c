@@ -6,11 +6,11 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 18:58:44 by ademenet          #+#    #+#             */
-/*   Updated: 2015/12/22 15:29:14 by ademenet         ###   ########.fr       */
+/*   Updated: 2015/12/23 15:50:30 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/fillit.h"
+#include "fillit.h"
 
 int		ft_collide(int x, int y, char **map)
 {

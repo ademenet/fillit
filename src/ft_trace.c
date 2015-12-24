@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_trace.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ademenet <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 18:53:50 by ademenet          #+#    #+#             */
-/*   Updated: 2015/12/21 16:16:42 by gvillat          ###   ########.fr       */
+/*   Updated: 2015/12/23 15:50:34 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/fillit.h"
+#include "fillit.h"
 
 int		ft_trace(int x, int y, int bsq)
 {
