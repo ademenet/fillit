@@ -6,7 +6,7 @@
 /*   By: aderragu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/11 09:47:59 by aderragu          #+#    #+#             */
-/*   Updated: 2015/12/21 16:09:27 by gvillat          ###   ########.fr       */
+/*   Updated: 2015/12/26 10:53:16 by tvisenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ t_tetri		*ft_global_check(char *file_name, int *pcs)
 	cnt = -1;
 	if ((buf = malloc(sizeof(char))) == NULL)
 		return (NULL);
-	if((fd = open(file_name, O_RDONLY, 0555)) == -1)
+	if ((fd = open(file_name, O_RDONLY, 0555)) == -1)
 		return (NULL);
 	while (read(fd, buf, BUFF))
 	{
@@ -101,7 +101,7 @@ t_tetri		*ft_global_check(char *file_name, int *pcs)
 		*pcs = *pcs + 1;
 	}
 	free(buf);
-	if((close(fd)) == -1)
+	if ((close(fd)) == -1)
 		return (NULL);
 	tetri_array[*pcs].letter = '|';
 	return (tetri_array);
