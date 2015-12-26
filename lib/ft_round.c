@@ -6,13 +6,13 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/22 15:30:37 by ademenet          #+#    #+#             */
-/*   Updated: 2015/12/22 15:36:38 by ademenet         ###   ########.fr       */
+/*   Updated: 2015/12/26 10:50:25 by tvisenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/fillit.h"
 
-int     ft_round(float nb)
+int	ft_round(float nb)
 {
-    return (nb >= 0 ? (int)(nb + 0.5) : (int)(nb - 0.5));
+	return (nb >= 0 ? (int)(nb + 0.5) : (int)(nb - 0.5));
 }

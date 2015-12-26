@@ -6,13 +6,13 @@
 /*   By: aderragu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/23 11:47:22 by aderragu          #+#    #+#             */
-/*   Updated: 2015/12/23 11:48:10 by aderragu         ###   ########.fr       */
+/*   Updated: 2015/12/26 10:50:53 by tvisenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 float		ft_sqrt(int nb)
 {
-	float 	cnt;
+	float	cnt;
 	float	res;
 
 	res = 0;
