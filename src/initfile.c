@@ -6,7 +6,7 @@
 /*   By: aderragu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/23 12:08:24 by aderragu          #+#    #+#             */
-/*   Updated: 2015/12/26 11:17:24 by tvisenti         ###   ########.fr       */
+/*   Updated: 2015/12/27 09:51:33 by tvisenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,6 @@ void			ft_init(t_tetri *tetris, int pcs)
 		if ((map = ft_createmap(sze_sqr)) == NULL)
 			return ;
 	}
-	ft_putchar('\n');
 	ft_putstr(CYN);
 	affichage(map, sze_sqr);
 	ft_putstr(RESET);
