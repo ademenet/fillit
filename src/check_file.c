@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/11 09:47:59 by aderragu          #+#    #+#             */
-/*   Updated: 2015/12/28 15:25:46 by ademenet         ###   ########.fr       */
+/*   Updated: 2015/12/28 17:08:14 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ int			ft_check_last(char *file_name, int pcs)
 	n = -1;
 	while (read(fd, buf, BUFF * pcs))
 	{
-		if (buf[BUFF * pcs - 3] == '.' || buf[BUFF * pcs - 3] == '#')
+		if (buf[BUFF * pcs - 1] == '\0' && buf[BUFF * pcs - 2] == '\n' &&
+			(buf[BUFF * pcs - 3] == '.' || buf[BUFF * pcs - 3] == '#'))
 			return (1);
 	}
 	free(buf);
@@ -55,7 +56,7 @@ t_tetri		*ft_pattern_check(char *buf, t_tetri *tetri)
 	return (NULL);
 }
 
-/*t_tetri		*ft_block_check(char *buf, t_tetri *tetri)
+t_tetri		*ft_block_check(char *buf, t_tetri *tetri)
 {
 	int		cur;
 	int		dot_cnt;
@@ -76,16 +77,16 @@ t_tetri		*ft_pattern_check(char *buf, t_tetri *tetri)
 		else if (buf[cur] == '#')
 			shrp_cnt++;
 	}
-if (dot_cnt != 12 || shrp_cnt != 4 || nwl_cnt != 5 || buf[20] != '\n' ||
-	(buf[0] != '.' && buf[0] != '#'))
-	if (!((dot_cnt == 12 && shrp_cnt == 4) && ((nwl_cnt == 5 && buf[20] == '\n')
-			|| (nwl_cnt == 4 && buf[20] == '\0'))))
+/*if (dot_cnt != 12 || shrp_cnt != 4 || nwl_cnt != 5 || buf[20] != '\n' ||
+	(buf[0] != '.' && buf[0] != '#'))*/
+	if (!(dot_cnt == 12 && shrp_cnt == 4) && !((nwl_cnt == 5 && buf[20] == '\n')
+			|| (nwl_cnt == 4 && buf[20] == '\0')))
 		return (NULL);
 	else
 		return (ft_pattern_check(buf, tetri));
-}*/
+}
 
-t_tetri		*ft_block_check(char *buf, t_tetri *tetri)
+/*t_tetri		*ft_block_check(char *buf, t_tetri *tetri)
 {
 	int		cnt;
 	int		n;
@@ -108,7 +109,7 @@ t_tetri		*ft_block_check(char *buf, t_tetri *tetri)
 		return (ft_pattern_check(buf, tetri));
 	else
 		return (NULL);
-}
+}*/
 
 t_tetri		*ft_global_check(char *file_name, int *pcs)
 {
