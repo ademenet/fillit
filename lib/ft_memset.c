@@ -1,34 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   affichage.c                                        :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tvisenti <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/26 10:59:21 by tvisenti          #+#    #+#             */
-/*   Updated: 2015/12/26 11:12:25 by tvisenti         ###   ########.fr       */
+/*   Created: 2015/11/23 11:57:09 by ademenet          #+#    #+#             */
+/*   Updated: 2015/12/28 10:39:13 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/fillit.h"
+#include <string.h>
 
-void	affichage(char **map, int sze_sqr)
+void	*ft_memset(void *b, int c, size_t len)
 {
-	int	i;
-	int	j;
+	unsigned char	*pb;
 
-	i = 0;
-	j = 0;
-	while (i < sze_sqr)
-	{
-		while (j < sze_sqr)
-		{
-			ft_putchar(map[i][j]);
-			write(1, " ", 1);
-			j++;
-		}
-		i++;
-		j = 0;
-		write(1, "\n", 1);
-	}
+	pb = b;
+	while (len--)
+		*pb++ = (unsigned char)c;
+	return (b);
 }

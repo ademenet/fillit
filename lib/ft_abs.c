@@ -1,35 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_abs.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/11 10:38:09 by aderragu          #+#    #+#             */
-/*   Updated: 2015/12/28 15:22:43 by ademenet         ###   ########.fr       */
+/*   Created: 2015/12/28 11:25:12 by ademenet          #+#    #+#             */
+/*   Updated: 2015/12/28 11:27:57 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/fillit.h"
-
-int			main(int argc, char **argv)
+int	ft_abs(int nbr)
 {
-	t_tetri	*tetris;
-	int		pcs;
-	int		cnt;
-
-	pcs = 0;
-	cnt = -1;
-	tetris = ft_global_check(argv[1], &pcs);
-	if (ft_check_last(argv[1], pcs) == 0)
-		write(1, "error\n", 6);
-	if (tetris == NULL || !pcs || pcs > 26)
-		write(1, "error\n", 6);
-	else
-	{
-		ft_letter_assignation(tetris);
-		ft_init(tetris, pcs);
-	}
-	argc--;
-	return (0);
+	return (nbr < 0 ? -nbr : nbr);
 }

@@ -6,7 +6,7 @@
 #    By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/21 17:34:59 by gvillat           #+#    #+#              #
-#    Updated: 2015/12/26 11:25:28 by tvisenti         ###   ########.fr        #
+#    Updated: 2015/12/28 14:53:17 by ademenet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ SRC_NAME =	check_file.c\
 			ft_strsetnew.c\
 			points_assignment.c\
 			initfile.c\
-			affichage.c\
+			ft_display.c\
 			main.c
 
 OBJ = $(SRC_NAME:.c=.o) $(TEST_NAME:.c=.o) $(LIB_NAME:.c=.o)
@@ -30,7 +30,9 @@ LIB_NAME = 	ft_putstr.c\
 			ft_putnbr.c\
 	 		ft_sqrt.c\
 	  		ft_strlen.c\
-			ft_round.c
+			ft_round.c\
+			ft_memset.c\
+			ft_abs.c
 
 INC_PATH = ./inc/
 INC_NAME = fillit.h\
@@ -46,17 +48,21 @@ INC = $(addprefix $(INC_PATH),$(INC_NAME))
 
 all: $(NAME)
 
-$(NAME):
-	$(CC) $(CFLAGS) $(SRC) $(LIB) -I $(INC) -o $(NAME)
+$(NAME): $(SRC)
+	@$(CC) $(CFLAGS) $(SRC) $(LIB) -I $(INC) -o $(NAME)
+	@echo "\033[1;33mCompilation \t \033[0;32m[OK]\033[0m"
 
 clean:
-	rm -rf $(OBJ)
+	@rm -rf $(OBJ)
+	@echo "\033[1;33mCleaning obj \t \033[0;32m[OK]\033[0m"
 
 fclean: clean
-	rm -rf $(NAME)
+	@rm -rf $(NAME)
+	@echo "\033[1;33mCleaning exec \t \033[0;32m[OK]\033[0m"
 
 re: fclean all
 
 norme:
-	norminette $(SRC)
-	norminette $(LIB)
+	@norminette $(SRC)
+	@norminette $(LIB)
+	@echo "\033[1;33mNorminette check \033[0;32m[OK]\033[0m"

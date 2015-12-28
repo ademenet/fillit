@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 14:16:42 by aderragu          #+#    #+#             */
-/*   Updated: 2015/12/26 11:33:25 by tvisenti         ###   ########.fr       */
+/*   Updated: 2015/12/28 15:26:13 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,9 @@ size_t			ft_strlen(const char *s);
 void			ft_putchar(char c);
 void			ft_putstr(char const *s);
 void			ft_putnbr(int n);
+void			*ft_memset(void *b, int c, size_t len);
 float			ft_sqrt(int nb);
+int				ft_abs(int nbr);
 int				ft_bsq(int nb);
 int				ft_round(float nb);
 t_tetri			*ft_block_check(char *buf, t_tetri *tetri);
@@ -44,6 +46,7 @@ char			*ft_strsetnew(char c, int size);
 char			**ft_createmap(int bsq);
 void			ft_init(t_tetri *tetris, int pcs);
 void			ft_letter_assignation(t_tetri *tetris);
-void			affichage(char **map, int sze_sqr);
+int				ft_check_last(char *file_name, int pcs);
+void			ft_display(char **map, int sze_sqr);
 
 #endif

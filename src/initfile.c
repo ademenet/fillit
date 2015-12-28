@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   initfile.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aderragu <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/23 12:08:24 by aderragu          #+#    #+#             */
-/*   Updated: 2015/12/27 09:51:33 by tvisenti         ###   ########.fr       */
+/*   Updated: 2015/12/28 11:35:49 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,6 @@ void			ft_init(t_tetri *tetris, int pcs)
 			return ;
 	}
 	ft_putstr(CYN);
-	affichage(map, sze_sqr);
+	ft_display(map, sze_sqr);
 	ft_putstr(RESET);
 }

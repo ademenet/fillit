@@ -3,33 +3,36 @@
 /*                                                        :::      ::::::::   */
 /*   check_file.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aderragu <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/11 09:47:59 by aderragu          #+#    #+#             */
-/*   Updated: 2015/12/26 10:53:16 by tvisenti         ###   ########.fr       */
+/*   Updated: 2015/12/28 15:25:46 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/fillit.h"
 
-static int	ft_abs(int nbr)
-{
-	return (nbr < 0 ? -nbr : nbr);
-}
+#include <stdio.h>
 
-int			ft_norme_vector(int x, int y, int x_ref, int y_ref)
+int			ft_check_last(char *file_name, int pcs)
 {
-	int	p;
-	int	p_ref;
-	int	p_diff;
+	char	*buf;
+	int		fd;
+	int		n;
 
-	p_ref = x_ref + y_ref;
-	p = x + y;
-	p_diff = p - p_ref;
-	p = ft_abs(x) + ft_abs(y);
-	if (p_diff > 1 || p_diff < -1 || p > 3)
+	if ((buf = (char*)malloc(sizeof(char) * BUFF * pcs + 1)) == NULL)
 		return (0);
-	return (1);
+	if ((fd = open(file_name, O_RDONLY, 0555)) == -1)
+		return (0);
+	buf[BUFF * pcs + 1] = '\0';
+	n = -1;
+	while (read(fd, buf, BUFF * pcs))
+	{
+		if (buf[BUFF * pcs - 3] == '.' || buf[BUFF * pcs - 3] == '#')
+			return (1);
+	}
+	free(buf);
+	return (0);
 }
 
 t_tetri		*ft_pattern_check(char *buf, t_tetri *tetri)
@@ -52,7 +55,7 @@ t_tetri		*ft_pattern_check(char *buf, t_tetri *tetri)
 	return (NULL);
 }
 
-t_tetri		*ft_block_check(char *buf, t_tetri *tetri)
+/*t_tetri		*ft_block_check(char *buf, t_tetri *tetri)
 {
 	int		cur;
 	int		dot_cnt;
@@ -73,11 +76,38 @@ t_tetri		*ft_block_check(char *buf, t_tetri *tetri)
 		else if (buf[cur] == '#')
 			shrp_cnt++;
 	}
-	if (dot_cnt != 12 || shrp_cnt != 4 || nwl_cnt != 5 || buf[20] != '\n' ||
-		(buf[0] != '.' && buf[0] != '#'))
+if (dot_cnt != 12 || shrp_cnt != 4 || nwl_cnt != 5 || buf[20] != '\n' ||
+	(buf[0] != '.' && buf[0] != '#'))
+	if (!((dot_cnt == 12 && shrp_cnt == 4) && ((nwl_cnt == 5 && buf[20] == '\n')
+			|| (nwl_cnt == 4 && buf[20] == '\0'))))
 		return (NULL);
 	else
 		return (ft_pattern_check(buf, tetri));
+}*/
+
+t_tetri		*ft_block_check(char *buf, t_tetri *tetri)
+{
+	int		cnt;
+	int		n;
+
+	cnt = 0;
+	n = -1;
+	while (cnt < 4)
+	{
+		while(++n < 4)
+		{
+			if (buf[n] != '.' && buf[n] != '#')
+				return (NULL);
+		}
+		if (buf[n] != '\n')
+			return (NULL);
+		n = 0;
+		cnt++;
+	}
+	if (buf[20] == '\0' || buf[20] == '\n')
+		return (ft_pattern_check(buf, tetri));
+	else
+		return (NULL);
 }
 
 t_tetri		*ft_global_check(char *file_name, int *pcs)
@@ -90,10 +120,11 @@ t_tetri		*ft_global_check(char *file_name, int *pcs)
 	if ((tetri_array = malloc(sizeof(t_tetri) * 27)) == NULL)
 		return (NULL);
 	cnt = -1;
-	if ((buf = malloc(sizeof(char))) == NULL)
+	if ((buf = malloc(sizeof(char) * BUFF + 1)) == NULL)
 		return (NULL);
 	if ((fd = open(file_name, O_RDONLY, 0555)) == -1)
 		return (NULL);
+	ft_memset(buf, '\0', BUFF + 1);
 	while (read(fd, buf, BUFF))
 	{
 		if (ft_block_check(buf, &(tetri_array[++cnt])) == NULL)
