@@ -12,8 +12,6 @@ echo "\033[1;33mTest file_test2\033[0m"
 ./fillit test/file_test2
 echo "\033[1;33mTest file_test3\033[0m"
 ./fillit test/file_test3
-echo "\033[1;33mTest file_test4\033[0m"
-./fillit test/file_test4
 echo "\033[1;33mTest invalid.tetri\033[0m"
 ./fillit test/invalid.tetri
 echo "\033[1;33mTest invalid2.tetri\033[0m"
