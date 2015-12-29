@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/26 10:59:21 by tvisenti          #+#    #+#             */
-/*   Updated: 2015/12/28 11:36:01 by ademenet         ###   ########.fr       */
+/*   Updated: 2015/12/29 15:21:58 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ void	ft_display(char **map, int sze_sqr)
 		while (j < sze_sqr)
 		{
 			ft_putchar(map[i][j]);
-			write(1, " ", 1);
 			j++;
 		}
 		i++;

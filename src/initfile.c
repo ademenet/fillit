@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/23 12:08:24 by aderragu          #+#    #+#             */
-/*   Updated: 2015/12/28 11:35:49 by ademenet         ###   ########.fr       */
+/*   Updated: 2015/12/29 15:16:49 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,5 @@ void			ft_init(t_tetri *tetris, int pcs)
 		if ((map = ft_createmap(sze_sqr)) == NULL)
 			return ;
 	}
-	ft_putstr(CYN);
 	ft_display(map, sze_sqr);
-	ft_putstr(RESET);
 }

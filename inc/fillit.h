@@ -6,14 +6,13 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 14:16:42 by aderragu          #+#    #+#             */
-/*   Updated: 2015/12/28 15:26:13 by ademenet         ###   ########.fr       */
+/*   Updated: 2015/12/29 15:14:41 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FILLIT_H
 # define FILLIT_H
 # define BUFF 21
-# include "colors.h"
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>

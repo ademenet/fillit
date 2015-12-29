@@ -6,7 +6,7 @@
 #    By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/21 17:34:59 by gvillat           #+#    #+#              #
-#    Updated: 2015/12/28 14:53:17 by ademenet         ###   ########.fr        #
+#    Updated: 2015/12/29 15:14:16 by ademenet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,6 @@ SRC_PATH = ./src/
 SRC_NAME =	check_file.c\
 			ft_bsq.c\
 			ft_createmap.c\
-			ft_strsetnew.c\
 			points_assignment.c\
 			initfile.c\
 			ft_display.c\
@@ -32,6 +31,7 @@ LIB_NAME = 	ft_putstr.c\
 	  		ft_strlen.c\
 			ft_round.c\
 			ft_memset.c\
+			ft_strsetnew.c\
 			ft_abs.c
 
 INC_PATH = ./inc/
