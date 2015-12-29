@@ -27,6 +27,9 @@ echo "\033[1;33mTest invalid.test.1shortline\033[0m"
 ./fillit test/invalid.test.1shortline
 echo "\033[1;33mTest 1e.fillit\033[0m"
 ./fillit test/1e.fillit
+echo "\033[1;33mTest file.false.goodnumbers\033[0m"
+./fillit test/file.false.goodnumbers
+
 
 echo "\033[1;35m##############################"
 echo "#        VALID FILES         #"
@@ -43,8 +46,8 @@ echo "\033[1;33mTest 1.fillit\033[0m"
 ./fillit test/1.fillit
 echo "\033[1;33mTest 11.fillit\033[0m"
 ./fillit test/11.fillit
-echo "\033[1;33mTest 12h.fillit\033[0m"
-./fillit test/12h.fillit
+#echo "\033[1;33mTest 12h.fillit\033[0m"
+#./fillit test/12h.fillit
 #echo "\033[1;33mTest 13.fillit\033[0m"
 #./fillit test/13.fillit
 #echo "\033[1;33mTest 14.fillit\033[0m"
