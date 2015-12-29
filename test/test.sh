@@ -2,16 +2,13 @@
 
 make re
 
+echo "\033[1;35m##############################"
+echo "#       INVALID FILES        #"
+echo "##############################\033[0m"
 echo "\033[1;33mTest file_false\033[0m"
 ./fillit test/file_false
 echo "\033[1;33mTest file_false_tetri\033[0m"
 ./fillit test/file_false_tetri
-echo "\033[1;33mTest file_test\033[0m"
-./fillit test/file_test
-echo "\033[1;33mTest file_test2\033[0m"
-./fillit test/file_test2
-echo "\033[1;33mTest file_test3\033[0m"
-./fillit test/file_test3
 echo "\033[1;33mTest invalid.tetri\033[0m"
 ./fillit test/invalid.tetri
 echo "\033[1;33mTest invalid2.tetri\033[0m"
@@ -24,6 +21,22 @@ echo "\033[1;33mTest invalid5.tetri\033[0m"
 ./fillit test/invalid5.tetri
 echo "\033[1;33mTest invalidSEGV.tetri\033[0m"
 ./fillit test/invalidSEGV.tetri
+echo "\033[1;33mTest invalid.test\033[0m"
+./fillit test/invalid.test
+echo "\033[1;33mTest invalid.test.1shortline\033[0m"
+./fillit test/invalid.test.1shortline
+echo "\033[1;33mTest 1e.fillit\033[0m"
+./fillit test/1e.fillit
+
+echo "\033[1;35m##############################"
+echo "#        VALID FILES         #"
+echo "##############################\033[0m"
+echo "\033[1;33mTest file_test\033[0m"
+./fillit test/file_test
+echo "\033[1;33mTest file_test2\033[0m"
+./fillit test/file_test2
+echo "\033[1;33mTest file_test3\033[0m"
+./fillit test/file_test3
 echo "\033[1;33mTest 12h.tetri.txt\033[0m"
 ./fillit test/12h.tetri.txt
 echo "\033[1;33mTest 1.fillit\033[0m"
@@ -44,8 +57,6 @@ echo "\033[1;33mTest 12h.fillit\033[0m"
 #./fillit test/17.fillit
 #echo "\033[1;33mTest 19.fillit\033[0m"
 #./fillit test/19.fillit
-echo "\033[1;33mTest 1e.fillit\033[0m"
-./fillit test/1e.fillit
 echo "\033[1;33mTest 2.fillit\033[0m"
 ./fillit test/2.fillit
 #echo "\033[1;33mTest 21.fillit\033[0m"
