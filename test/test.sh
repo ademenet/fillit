@@ -29,6 +29,8 @@ echo "\033[1;33mTest 1e.fillit\033[0m"
 ./fillit test/1e.fillit
 echo "\033[1;33mTest file.false.goodnumbers\033[0m"
 ./fillit test/file.false.goodnumbers
+echo "\033[1;33mTest invalid.nofirstline\033[0m"
+./fillit test/invalid.nofirstline
 
 
 echo "\033[1;35m##############################"
