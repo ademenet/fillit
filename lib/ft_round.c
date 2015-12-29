@@ -6,11 +6,9 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/22 15:30:37 by ademenet          #+#    #+#             */
-/*   Updated: 2015/12/26 10:50:25 by tvisenti         ###   ########.fr       */
+/*   Updated: 2015/12/29 17:53:32 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "../inc/fillit.h"
 
 int	ft_round(float nb)
 {

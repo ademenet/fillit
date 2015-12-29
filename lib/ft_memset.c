@@ -6,11 +6,11 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 11:57:09 by ademenet          #+#    #+#             */
-/*   Updated: 2015/12/28 10:39:13 by ademenet         ###   ########.fr       */
+/*   Updated: 2015/12/29 17:55:15 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "../inc/fillit.h"
 
 void	*ft_memset(void *b, int c, size_t len)
 {

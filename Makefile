@@ -6,7 +6,7 @@
 #    By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/21 17:34:59 by gvillat           #+#    #+#              #
-#    Updated: 2015/12/29 15:14:16 by ademenet         ###   ########.fr        #
+#    Updated: 2015/12/29 18:00:16 by ademenet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,11 +14,10 @@
 
 SRC_PATH = ./src/
 SRC_NAME =	check_file.c\
-			ft_bsq.c\
-			ft_createmap.c\
+			createmap.c\
 			points_assignment.c\
 			initfile.c\
-			ft_display.c\
+			display.c\
 			main.c
 
 OBJ = $(SRC_NAME:.c=.o) $(TEST_NAME:.c=.o) $(LIB_NAME:.c=.o)

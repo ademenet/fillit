@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_createmap.c                                     :+:      :+:    :+:   */
+/*   display.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ademenet <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/11 10:37:57 by ademenet          #+#    #+#             */
-/*   Updated: 2015/12/21 16:14:40 by gvillat          ###   ########.fr       */
+/*   Created: 2015/12/26 10:59:21 by ademenet          #+#    #+#             */
+/*   Updated: 2015/12/29 18:27:22 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/fillit.h"
 
-char	**ft_createmap(int bsq)
+void	ft_display(char **map, int sze_sqr)
 {
-	char	**map_y;
-	char	*map_x;
-	int		i;
+	int	i;
+	int	j;
 
-	map_y = (char**)malloc((bsq + 1) * sizeof(char*));
-	if (!map_y)
-		return (NULL);
-	i = bsq;
-	map_y[i] = NULL;
-	while (--i >= 0)
+	i = 0;
+	j = 0;
+	while (i < sze_sqr)
 	{
-		map_x = ft_strsetnew('.', bsq);
-		map_y[i] = map_x;
+		while (j < sze_sqr)
+		{
+			ft_putchar(map[i][j]);
+			j++;
+		}
+		i++;
+		j = 0;
+		write(1, "\n", 1);
 	}
-	return (map_y);
 }
