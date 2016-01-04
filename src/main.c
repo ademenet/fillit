@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/11 10:38:09 by ademenet          #+#    #+#             */
-/*   Updated: 2016/01/04 11:11:40 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/01/04 18:17:24 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@ int			main(int argc, char **argv)
 	pcs = 0;
 	cnt = -1;
 	tetris = ft_global_check(argv[1], &pcs);
-	if (ft_check_last(argv[1], pcs) == 0)
+	/*if (ft_check_last(argv[1], pcs) == 0)
 	{
 		write(1, "error\n", 6);
 		return (0);
-	}
+	}*/
 	if (tetris == NULL || !pcs || pcs > 26)
 		write(1, "error\n", 6);
 	else

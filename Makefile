@@ -6,7 +6,7 @@
 #    By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/21 17:34:59 by gvillat           #+#    #+#              #
-#    Updated: 2015/12/29 18:00:16 by ademenet         ###   ########.fr        #
+#    Updated: 2016/01/04 17:37:26 by ademenet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,8 @@ LIB_NAME = 	ft_putstr.c\
 			ft_round.c\
 			ft_memset.c\
 			ft_strsetnew.c\
-			ft_abs.c
+			ft_abs.c\
+			ft_strncpy.c
 
 INC_PATH = ./inc/
 INC_NAME = fillit.h\
