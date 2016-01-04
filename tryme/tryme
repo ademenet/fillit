@@ -1,0 +1,104 @@
+#!/bin/zsh
+
+#
+## Color and effects
+#
+
+E_RESET="\033[0m"
+E_BOLD="\033[1m"
+E_UNDERLINE="\033[4m"
+E_BLINK="\033[5m"
+E_HIGHLIGHT="\033[7m"
+
+C_BLACK="\033[30m"
+C_RED="\033[31m"
+C_GREEN="\033[32m"
+C_YELLOW="\033[33m"
+C_BLUE="\033[34m"
+C_PINK="\033[35m"
+C_CYAN="\033[36m"
+C_GREY="\033[37m"
+
+BC_BLACK="\033[40m"
+BC_RED="\033[41m"
+BC_GREEN="\033[42m"
+BC_YELLOW="\033[43m"
+BC_BLUE="\033[44m"
+BC_PINK="\033[45m"
+BC_CYAN="\033[46m"
+BC_GREY="\033[47m"
+
+echo -e $C_BLUE"TryMe - Fillit\n"
+
+echo -e "Testing the Makefile:"$E_RESET
+
+make re 2> /dev/null > /dev/null
+if [[ -f fillit ]]; then
+	echo -e $C_GREEN"Compilation OK."$E_RESET
+else
+	echo -e $C_RED"Compilation as failed."$E_RESET
+	exit
+fi
+if [[ `make 2> /dev/null` != "make: Nothing to be done for \`all'." ]]; then
+	echo -e $C_YELLOW"Warning: the Makefile relinks."$E_RESET
+else
+	echo -e $C_GREEN"The Makefile does not relink."$E_RESET
+fi
+make clean 2> /dev/null > /dev/null
+if [[ -n `ls | grep \\.o 2> /dev/null > /dev/null` ]]; then
+	echo -e $C_RED"Your 'make clean' doesn't remove all objects files."$E_RESET
+else
+	echo -e $C_GREEN"Your 'make clean' works fine."$E_RESET
+fi
+make fclean 2> /dev/null > /dev/null
+if [[ -f fillit ]]; then
+	echo -e $C_RED"Your 'make fclean' doesn't remove the fillit executable."$E_RESET
+else
+	echo -e $C_GREEN"Your 'make fclean' works fine."$E_RESET
+fi
+make re 2> /dev/null > /dev/null
+
+echo -e $C_BLUE"\nTesting the params reactions:"$E_RESET
+
+if [[ `./fillit blabla blabla | cat -e` != "error$" ]]; then
+	echo -e $C_RED"Error: wrong output for multiple params."$E_RESET
+else
+	echo -e $C_GREEN"Output for multiple params: OK."$E_RESET
+fi
+if [[ `./fillit | cat -e` != "error$" ]]; then
+	echo -e $C_RED"Error: wrong output for no param."$E_RESET
+else
+	echo -e $C_GREEN"Output for no param: OK."$E_RESET
+fi
+
+echo -e $C_BLUE"\nTesting the errors cases:"$E_RESET
+
+ERROR_FILES=(`ls tryme/tests_files/error*`)
+
+for FILE in $ERROR_FILES; do
+	if [[ `./fillit $FILE | cat -e` != "error$" ]]; then
+		echo -e $C_RED"Error: wrong output for the test file $FILE."$E_RESET
+	else
+		echo -e $C_GREEN"Output for the test file $FILE : OK."$E_RESET
+	fi
+done
+
+echo -e $C_BLUE"\nTesting corrects files, all should work correctly :"$E_RESET
+
+TEST_FILES=(`ls tryme/tests_files/test*`)
+
+for FILE in $TEST_FILES; do
+	echo -e $C_YELLOW"Testing the file $FILE :"
+	./fillit $FILE
+	echo -e $E_RESET
+done
+
+echo -e $C_BLUE"\nPerformance files :"$E_RESET
+
+PERF_FILES=(`ls tryme/tests_files/perf*`)
+
+for FILE in $PERF_FILES; do
+	echo -e $C_YELLOW"Testing the file $FILE :"
+	time ./fillit $FILE
+	echo -e $E_RESET
+done
