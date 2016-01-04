@@ -6,7 +6,7 @@
 /*   By: ademenet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 11:17:22 by ademenet          #+#    #+#             */
-/*   Updated: 2016/01/04 11:17:25 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/01/04 12:22:32 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int			ft_check_last(char *file_name, int pcs)
 	int		fd;
 	int		n;
 
-	if ((buf = (char*)malloc(sizeof(char) * BUFF * pcs + 1)) == NULL)
+	if ((buf = (char*)malloc(sizeof(char) * (BUFF * pcs + 1))) == NULL)
 		return (0);
 	if ((fd = open(file_name, O_RDONLY, 0555)) == -1)
 		return (0);
@@ -78,8 +78,7 @@ t_tetri		*ft_block_check(char *buf, t_tetri *tetri)
 	if (!(dot_cnt == 12 && shrp_cnt == 4 && buf[19] == '\n') &&
 			(!(nwl_cnt == 5) || !(nwl_cnt == 4 && buf[20] == '\0')))
 		return (NULL);
-	else
-		return (ft_pattern_check(buf, tetri));
+	return (ft_pattern_check(buf, tetri));
 }
 
 t_tetri		*ft_global_check(char *file_name, int *pcs)
