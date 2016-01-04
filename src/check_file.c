@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ademenet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/29 15:19:32 by ademenet          #+#    #+#             */
-/*   Updated: 2015/12/29 15:32:13 by ademenet         ###   ########.fr       */
+/*   Created: 2016/01/04 11:17:22 by ademenet          #+#    #+#             */
+/*   Updated: 2016/01/04 11:17:25 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,8 @@ t_tetri		*ft_block_check(char *buf, t_tetri *tetri)
 		else if (buf[cur] == '#')
 			shrp_cnt++;
 	}
-	if (!(dot_cnt == 12 && shrp_cnt == 4 && buf[19] == '\n') && (!(nwl_cnt == 5)
-			|| !(nwl_cnt == 4 && buf[20] == '\0')))
+	if (!(dot_cnt == 12 && shrp_cnt == 4 && buf[19] == '\n') &&
+			(!(nwl_cnt == 5) || !(nwl_cnt == 4 && buf[20] == '\0')))
 		return (NULL);
 	else
 		return (ft_pattern_check(buf, tetri));

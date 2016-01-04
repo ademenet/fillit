@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/11 10:38:09 by ademenet          #+#    #+#             */
-/*   Updated: 2015/12/29 18:20:02 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/01/04 11:11:40 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,5 @@ int			main(int argc, char **argv)
 		ft_letter_assignation(tetris);
 		ft_init(tetris, pcs);
 	}
-	argc--;
 	return (0);
 }
