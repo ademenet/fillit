@@ -6,7 +6,7 @@
 /*   By: ademenet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 11:17:22 by ademenet          #+#    #+#             */
-/*   Updated: 2016/01/04 12:22:32 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/01/04 16:14:08 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,12 +96,10 @@ t_tetri		*ft_global_check(char *file_name, int *pcs)
 	if ((fd = open(file_name, O_RDONLY, 0555)) == -1)
 		return (NULL);
 	ft_memset(buf, '\0', BUFF + 1);
-	while (read(fd, buf, BUFF))
-	{
-		if (ft_block_check(buf, &(tetri_array[++cnt])) == NULL)
-			return (NULL);
-		*pcs = *pcs + 1;
-	}
+	read(fd, buf, BUFF);
+	if (ft_block_check(buf, &(tetri_array[++cnt])) == NULL)
+		return (NULL);
+	*pcs = *pcs + 1;
 	free(buf);
 	if ((close(fd)) == -1)
 		return (NULL);
