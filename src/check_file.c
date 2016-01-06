@@ -60,13 +60,11 @@ int			ft_line_check(char *buf)
 {
 	int		cur;
 	int		shrp_cnt;
-	int		dot_cnt;
 	int 	line;
 
 	line = 0;
 	cur = 0;
 	shrp_cnt = 0;
-	dot_cnt = 0;
 	while (buf[cur])
 	{
 		if (cur % 5 == 4 && buf[cur] != '\n')
@@ -77,7 +75,6 @@ int			ft_line_check(char *buf)
 	while (cur < 5)
 	{
 		shrp_cnt = buf[cur] == '#' ? shrp_cnt + 1 : shrp_cnt;
-		dot_cnt = buf[cur] == '.' ? dot_cnt + 1 : dot_cnt;
 		cur++;
 	}
 	if (shrp_cnt > 0 && shrp_cnt < 4 && !(buf[cur + 1] == '#' || buf[cur + 2] == '#' || buf[cur + 3] == '#' || buf[cur + 4] == '#'))
