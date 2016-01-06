@@ -33,11 +33,14 @@ echo "\033[1;33mTest invalid.nofirstline\033[0m"
 ./fillit test/invalid.nofirstline
 echo "\033[1;33mTest invalid.wronglinenumber\033[0m"
 ./fillit test/invalid.wronglinenumber
-
+echo "\033[1;33mTest invalid.wrongtetriblock\033[0m"
+./fillit test/invalid.wrongtetriblock
 
 echo "\033[1;35m##############################"
 echo "#        VALID FILES         #"
 echo "##############################\033[0m"
+echo "\033[1;33mTest test.friteleft\033[0m"
+./fillit test/test.friteleft
 echo "\033[1;33mTest smallvalid\033[0m"
 ./fillit test/smallvalid
 echo "\033[1;33mTest file_test\033[0m"
