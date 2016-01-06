@@ -48,5 +48,6 @@ void			ft_init(t_tetri *tetris, int pcs);
 void			ft_letter_assignation(t_tetri *tetris);
 int				ft_check_last(char *file_name, int pcs);
 void			ft_display(char **map, int sze_sqr);
+int				ft_line_check(char *buf);
 
 #endif

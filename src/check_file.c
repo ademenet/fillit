@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "../inc/fillit.h"
+#include <stdio.h>
 
 int			ft_check_last(char *file_name, int pcs)
 {
@@ -54,6 +55,36 @@ t_tetri		*ft_pattern_check(char *buf, t_tetri *tetri)
 	return (NULL);
 }
 
+
+int			ft_line_check(char *buf)
+{
+	int		cur;
+	int		shrp_cnt;
+	int		dot_cnt;
+	int 	line;
+
+	line = 0;
+	cur = 0;
+	shrp_cnt = 0;
+	dot_cnt = 0;
+	while (buf[cur])
+	{
+		if (cur % 5 == 4 && buf[cur] != '\n')
+			return (0);
+		cur++;
+	}
+	cur = 0;
+	while (cur < 5)
+	{
+		shrp_cnt = buf[cur] == '#' ? shrp_cnt + 1 : shrp_cnt;
+		dot_cnt = buf[cur] == '.' ? dot_cnt + 1 : dot_cnt;
+		cur++;
+	}
+	if (shrp_cnt > 0 && shrp_cnt < 4 && !(buf[cur + 1] == '#' || buf[cur + 2] == '#' || buf[cur + 3] == '#' || buf[cur + 4] == '#'))
+		return (0);
+	return (1);
+}
+
 t_tetri		*ft_block_check(char *buf, t_tetri *tetri)
 {
 	int		cur;
@@ -65,8 +96,7 @@ t_tetri		*ft_block_check(char *buf, t_tetri *tetri)
 	dot_cnt = 0;
 	shrp_cnt = 0;
 	nwl_cnt = 0;
-	while (buf[++cur] && (buf[cur] == '.' || buf[cur] == '#' ||
-		buf[cur] == '\n'))
+	while (buf[++cur] && (buf[cur] == '.' || buf[cur] == '#' || buf[cur] == '\n'))
 	{
 		if (buf[cur] == '.')
 			dot_cnt++;
@@ -75,8 +105,9 @@ t_tetri		*ft_block_check(char *buf, t_tetri *tetri)
 		else if (buf[cur] == '#')
 			shrp_cnt++;
 	}
-	if (!(dot_cnt == 12 && shrp_cnt == 4 && buf[19] == '\n') &&
-			(!(nwl_cnt == 5) || !(nwl_cnt == 4 && buf[20] == '\0')))
+	if (ft_line_check(buf) == 0)
+		return (NULL);
+	if (!(dot_cnt == 12 && shrp_cnt == 4 && buf[19] == '\n') && (!(nwl_cnt == 5) || !(nwl_cnt == 4 && buf[20] == '\0')))
 		return (NULL);
 	return (ft_pattern_check(buf, tetri));
 }
