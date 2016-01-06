@@ -6,12 +6,11 @@
 /*   By: ademenet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 11:17:22 by ademenet          #+#    #+#             */
-/*   Updated: 2016/01/06 17:43:39 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/01/06 19:21:31 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/fillit.h"
-#include <stdio.h>
 
 int			ft_check_last(char *file_name, int pcs)
 {
@@ -55,6 +54,30 @@ t_tetri		*ft_pattern_check(char *buf, t_tetri *tetri)
 	return (NULL);
 }
 
+int		ft_neighbour(char* buf)
+{
+	int i;
+	int cnt;
+
+	cnt = 0; 
+	i = 0;
+	while (buf[i])
+	{
+		if (i > 0 && buf[i - 1] == '#')
+			cnt++;
+		if (i < 20 && buf[i + 1] == '#')
+			cnt++;
+		if (i < 15 && buf[i + 5] == '#')
+			cnt++;
+		if (i > 5 && buf[i - 5] == '#')
+			cnt++;
+		i++;
+	}
+	if (cnt < 6)
+		return (0);
+	return (1);
+}
+
 int			ft_line_check(char *buf)
 {
 	int		cur;
@@ -83,6 +106,11 @@ int			ft_line_check(char *buf)
 	return (1);
 }
 
+
+
+
+
+
 t_tetri		*ft_block_check(char *buf, t_tetri *tetri)
 {
 	int		cur;
@@ -109,6 +137,8 @@ t_tetri		*ft_block_check(char *buf, t_tetri *tetri)
 	if (!(dot_cnt == 12 && shrp_cnt == 4 && buf[19] == '\n') &&
 			(!(nwl_cnt == 5) || !(nwl_cnt == 4 && buf[20] == '\0')))
 		return (NULL);
+	if (ft_neighbour(buf) == 0)
+		return(NULL);
 	return (ft_pattern_check(buf, tetri));
 }
 

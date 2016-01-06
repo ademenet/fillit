@@ -6,7 +6,7 @@
 /*   By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 14:16:42 by ademenet          #+#    #+#             */
-/*   Updated: 2016/01/04 12:14:08 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/01/06 19:00:29 by ademenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,6 @@ void			ft_letter_assignation(t_tetri *tetris);
 int				ft_check_last(char *file_name, int pcs);
 void			ft_display(char **map, int sze_sqr);
 int				ft_line_check(char *buf);
+int				ft_neighbour(char *buf);
 
 #endif
