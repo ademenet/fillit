@@ -6,7 +6,7 @@
 /*   By: ademenet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 11:17:22 by ademenet          #+#    #+#             */
-/*   Updated: 2016/01/04 12:22:32 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/01/06 17:15:14 by gvillat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ int			ft_check_last(char *file_name, int pcs)
 	n = -1;
 	while (read(fd, buf, BUFF * pcs))
 	{
-		if (buf[BUFF * pcs - 1] == '\0' && buf[BUFF * pcs - 2] == '\n' &&
-			(buf[BUFF * pcs - 3] == '.' || buf[BUFF * pcs - 3] == '#'))
+		if (buf[BUFF * pcs - 1] == '\0' && buf[BUFF * pcs - 2] == '\n' && 
+				(buf[BUFF * pcs - 3] == '.' || buf[BUFF * pcs - 3] == '#'))
 			return (1);
 	}
 	free(buf);
@@ -55,12 +55,11 @@ t_tetri		*ft_pattern_check(char *buf, t_tetri *tetri)
 	return (NULL);
 }
 
-
 int			ft_line_check(char *buf)
 {
 	int		cur;
 	int		shrp_cnt;
-	int 	line;
+	int		line;
 
 	line = 0;
 	cur = 0;
@@ -77,7 +76,9 @@ int			ft_line_check(char *buf)
 		shrp_cnt = buf[cur] == '#' ? shrp_cnt + 1 : shrp_cnt;
 		cur++;
 	}
-	if (shrp_cnt > 0 && shrp_cnt < 4 && !(buf[cur + 1] == '#' || buf[cur + 2] == '#' || buf[cur + 3] == '#' || buf[cur + 4] == '#'))
+	if (shrp_cnt > 0 && shrp_cnt < 4 && !(buf[cur] == '#' || 
+				buf[cur + 1] == '#' || buf[cur + 2] == '#' ||
+			   	buf[cur + 3] == '#'))
 		return (0);
 	return (1);
 }
@@ -93,7 +94,8 @@ t_tetri		*ft_block_check(char *buf, t_tetri *tetri)
 	dot_cnt = 0;
 	shrp_cnt = 0;
 	nwl_cnt = 0;
-	while (buf[++cur] && (buf[cur] == '.' || buf[cur] == '#' || buf[cur] == '\n'))
+	while (buf[++cur] && (buf[cur] == '.' || buf[cur] == '#' || 
+			   	buf[cur] == '\n'))
 	{
 		if (buf[cur] == '.')
 			dot_cnt++;
