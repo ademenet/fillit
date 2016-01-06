@@ -39,6 +39,8 @@ echo "\033[1;33mTest invalid.wrongtetriblock\033[0m"
 echo "\033[1;35m##############################"
 echo "#        VALID FILES         #"
 echo "##############################\033[0m"
+echo "\033[1;33mTest test.lvalid\033[0m"
+./fillit test/test.lvalid
 echo "\033[1;33mTest test.friteleft\033[0m"
 ./fillit test/test.friteleft
 echo "\033[1;33mTest smallvalid\033[0m"
