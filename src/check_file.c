@@ -116,9 +116,7 @@ t_tetri		*ft_global_check(char *file_name, int *pcs)
 	t_tetri	*tetri_array;
 	int		fd;
 	int		cnt;
-	int		r;
 
-	r = 0;
 	if ((tetri_array = malloc(sizeof(t_tetri) * 27)) == NULL)
 		return (NULL);
 	cnt = -1;
@@ -127,7 +125,7 @@ t_tetri		*ft_global_check(char *file_name, int *pcs)
 	if ((fd = open(file_name, O_RDONLY, 0555)) == -1)
 		return (NULL);
 	ft_memset(buf, '\0', BUFF + 1);
-	while (r == (read(fd, buf, BUFF)))
+	while ((read(fd, buf, BUFF)) > 0)
 	{
 		if (ft_block_check(buf, &(tetri_array[++cnt])) == NULL)
 			return (NULL);
@@ -135,7 +133,7 @@ t_tetri		*ft_global_check(char *file_name, int *pcs)
 		ft_memset(buf, '\0', BUFF + 1);
 	}
 	free(buf);
-	if ((close(fd)) == -1 || r == -1)
+	if ((close(fd)) == -1)
 		return (NULL);
 	tetri_array[*pcs].letter = '|';
 	return (tetri_array);
