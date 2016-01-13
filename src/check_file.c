@@ -24,7 +24,7 @@ int			ft_check_last(char *file_name, int pcs)
 		return (0);
 	buf[BUFF * pcs + 1] = '\0';
 	n = -1;
-	while (read(fd, buf, BUFF * pcs))
+	while ((read(fd, buf, BUFF * pcs)) > 0)
 	{
 		if (buf[BUFF * pcs - 1] == '\0' && buf[BUFF * pcs - 2] == '\n' &&
 				(buf[BUFF * pcs - 3] == '.' || buf[BUFF * pcs - 3] == '#'))
