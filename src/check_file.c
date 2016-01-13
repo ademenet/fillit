@@ -6,7 +6,7 @@
 /*   By: ademenet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 11:17:22 by ademenet          #+#    #+#             */
-/*   Updated: 2016/01/06 19:21:31 by ademenet         ###   ########.fr       */
+/*   Updated: 2016/01/13 19:07:07 by gvillat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,62 +54,32 @@ t_tetri		*ft_pattern_check(char *buf, t_tetri *tetri)
 	return (NULL);
 }
 
-int		ft_neighbour(char* buf)
+t_tetri		*ft_line_check(char *buf, t_tetri *tetri, int line)
 {
-	int i;
-	int cnt;
+	int			cnts[5];
 
-	cnt = 0; 
-	i = 0;
-	while (buf[i])
+	cnts[0] = 0;
+	cnts[1] = 0;
+	cnts[2] = 0;
+	cnts[3] = 5;
+	cnts[4] = 0;
+	while (++line != 4)
 	{
-		if (i > 0 && buf[i - 1] == '#')
-			cnt++;
-		if (i < 20 && buf[i + 1] == '#')
-			cnt++;
-		if (i < 15 && buf[i + 5] == '#')
-			cnt++;
-		if (i > 5 && buf[i - 5] == '#')
-			cnt++;
-		i++;
+		while (buf[cnts[4]] && buf[cnts[4]] != '\n')
+		{
+			cnts[0] = buf[cnts[4]] == '.' ? cnts[0] + 1 : cnts[0];
+			cnts[1] = buf[cnts[4]] == '#' ? cnts[1] + 1 : cnts[1];
+			cnts[4]++;
+		}
+		cnts[4]++;
+		if (ft_sharp_check(buf, line, cnts) == 0)
+			return (NULL);
+		cnts[0] = 0;
+		cnts[2] = 0;
+		cnts[3] = 5;
 	}
-	if (cnt < 6)
-		return (0);
-	return (1);
+	return (tetri);
 }
-
-int			ft_line_check(char *buf)
-{
-	int		cur;
-	int		shrp_cnt;
-	int		line;
-
-	line = 0;
-	cur = 0;
-	shrp_cnt = 0;
-	while (buf[cur])
-	{
-		if (cur % 5 == 4 && buf[cur] != '\n')
-			return (0);
-		cur++;
-	}
-	cur = 0;
-	while (cur < 5)
-	{
-		shrp_cnt = buf[cur] == '#' ? shrp_cnt + 1 : shrp_cnt;
-		cur++;
-	}
-	if (shrp_cnt > 0 && shrp_cnt < 4 && !(buf[cur] == '#' ||
-				buf[cur + 1] == '#' || buf[cur + 2] == '#' ||
-				buf[cur + 3] == '#'))
-		return (0);
-	return (1);
-}
-
-
-
-
-
 
 t_tetri		*ft_block_check(char *buf, t_tetri *tetri)
 {
@@ -132,13 +102,11 @@ t_tetri		*ft_block_check(char *buf, t_tetri *tetri)
 		else if (buf[cur] == '#')
 			shrp_cnt++;
 	}
-	if (ft_line_check(buf) == 0)
+	if (ft_line_check(buf, tetri, -1) == NULL)
 		return (NULL);
 	if (!(dot_cnt == 12 && shrp_cnt == 4 && buf[19] == '\n') &&
 			(!(nwl_cnt == 5) || !(nwl_cnt == 4 && buf[20] == '\0')))
 		return (NULL);
-	if (ft_neighbour(buf) == 0)
-		return(NULL);
 	return (ft_pattern_check(buf, tetri));
 }
 
@@ -148,7 +116,9 @@ t_tetri		*ft_global_check(char *file_name, int *pcs)
 	t_tetri	*tetri_array;
 	int		fd;
 	int		cnt;
+	int		r;
 
+	r = 0;
 	if ((tetri_array = malloc(sizeof(t_tetri) * 27)) == NULL)
 		return (NULL);
 	cnt = -1;
@@ -157,14 +127,15 @@ t_tetri		*ft_global_check(char *file_name, int *pcs)
 	if ((fd = open(file_name, O_RDONLY, 0555)) == -1)
 		return (NULL);
 	ft_memset(buf, '\0', BUFF + 1);
-	while (read(fd, buf, BUFF))
+	while (r == (read(fd, buf, BUFF)))
 	{
 		if (ft_block_check(buf, &(tetri_array[++cnt])) == NULL)
 			return (NULL);
 		*pcs = *pcs + 1;
+		ft_memset(buf, '\0', BUFF + 1);
 	}
 	free(buf);
-	if ((close(fd)) == -1)
+	if ((close(fd)) == -1 || r == -1)
 		return (NULL);
 	tetri_array[*pcs].letter = '|';
 	return (tetri_array);
