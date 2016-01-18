@@ -24,7 +24,7 @@ int			ft_check_last(char *file_name, int pcs)
 		return (0);
 	buf[BUFF * pcs + 1] = '\0';
 	n = -1;
-	while ((read(fd, buf, BUFF * pcs)) >= 0)
+	while ((read(fd, buf, BUFF * pcs)))
 	{
 		if (buf[BUFF * pcs - 1] == '\0' && buf[BUFF * pcs - 2] == '\n' &&
 				(buf[BUFF * pcs - 3] == '.' || buf[BUFF * pcs - 3] == '#'))
@@ -125,7 +125,7 @@ t_tetri		*ft_global_check(char *file_name, int *pcs)
 	if ((fd = open(file_name, O_RDONLY, 0555)) == -1)
 		return (NULL);
 	ft_memset(buf, '\0', BUFF + 1);
-	while ((read(fd, buf, BUFF)) >= 0)
+	while ((read(fd, buf, BUFF)))
 	{
 		if (ft_block_check(buf, &(tetri_array[++cnt])) == NULL)
 			return (NULL);
